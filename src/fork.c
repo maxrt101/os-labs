@@ -10,7 +10,7 @@ pid_t create_child(int n) {
     fprintf(stderr, "[parent] Error occured during fork()\n");
     exit(EXIT_FAILURE);
   } else if (pid == 0) {
-    printf("[child#%d] Created with pid %d\n", n, getpid());
+    printf("[child#%d] Created with pid %d (parent=%d)\n", n, getpid(), getppid());
     exit(EXIT_SUCCESS);
   } else {
     printf("[parent] Child#%d created with pid %d\n", n, pid);

@@ -21,7 +21,7 @@ pid_t create_child(int n) {
     fprintf(stderr, "[parent] Error occured during fork()\n");
     exit(EXIT_FAILURE);
   } else if (pid == 0) {
-    printf("[child#%d] Created with pid %d\n", n, getpid());
+    printf("[child#%d] Created with pid %d (parent=%d)\n", n, getpid(), getppid());
     if (n == 1) {
       pid_t child2 = create_child(2);
       wait_for(child2, 2);
