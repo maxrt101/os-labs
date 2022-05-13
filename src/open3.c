@@ -34,12 +34,18 @@ int main(int argc, char ** argv) {
   }
 
   char* buffer = malloc(infilestat.st_size + 1);
+  if (!buffer) {
+    fprintf(stderr, "Failed to allocate %lld bytes\n", infilestat.st_size+1);
+    ret = 1;
+    goto end;
+  }
+
   memset(buffer, 0, infilestat.st_size + 1);
 
   if (read(infd, buffer, infilestat.st_size) != infilestat.st_size) {
     fprintf(stderr, "Failed to read %lld chars from %s\n", infilestat.st_size, argv[1]);
     ret = 1;
-    goto end;
+    goto end_mem;
   }
 
   if (write(outfd, buffer, infilestat.st_size) == -1) {
@@ -47,6 +53,8 @@ int main(int argc, char ** argv) {
     ret = 1;
   }
 
+end_mem:
+  free(buffer);
 end:
   close(infd);
   close(outfd);

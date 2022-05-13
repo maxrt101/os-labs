@@ -11,4 +11,5 @@ int main(int argc, char ** argv) {
 
   int fd = open(argv[1], O_WRONLY | O_CREAT | O_TRUNC, S_IRWXU | S_IRGRP);
   write(fd, argv[2], strlen(argv[2]));
+  close(fd);
 }
