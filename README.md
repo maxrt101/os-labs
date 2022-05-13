@@ -11,6 +11,6 @@
    - Write a program that will create 2 child processes (`fork.c`)
    - Write a program that will create a child process that will create a child process (`fork2.c`)
 4. Wait
-   - Write a program that will print parent and child messages in that specific order
-   - Write a program that will create file in child and write used data to it from parent
+   - Write a program that will print parent and child messages in that specific order (2 implementations `wait.c`, `wait2.c`)
+   - Write a program that will create file in child and write used data to it from parent (`wait3.c`)
    - Write a program that will create 2 child processes and parent should wait for them to exit (implemented in `fork.c`) 
