@@ -28,13 +28,13 @@ int main(int argc, char ** argv) {
   char buffer[READ_COUNT + 1] = {0};
 
   if (read(infd, buffer, READ_COUNT) != READ_COUNT) {
-    fprintf(stderr, "Failed to read 8 chars from %s\n", argv[1]);
+    fprintf(stderr, "Failed to read %d chars from %s\n", READ_COUNT, argv[1]);
     ret = 1;
     goto end;
   }
 
   if (write(outfd, buffer, READ_COUNT) == -1) {
-    fprintf(stderr, "Failed to write 8 chars to %s\n", argv[2]);
+    fprintf(stderr, "Failed to write %d chars to %s\n", READ_COUNT, argv[2]);
     ret = 1;
   }
 

@@ -28,7 +28,7 @@ int main(int argc, char ** argv) {
   struct stat infilestat;
 
   if (fstat(infd, &infilestat) == -1) {
-     fprintf(stderr, "Failed to get stat for %s\n", argv[1]);
+    fprintf(stderr, "Failed to get stat for %s\n", argv[1]);
     ret = 1;
     goto end;
   }
