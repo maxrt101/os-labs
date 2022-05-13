@@ -37,10 +37,8 @@ int main() {
   printf("[parent] Started with pid %d\n", getpid());
 
   pid_t child1 = create_child(1);
-  pid_t child2 = create_child(2);
 
   wait_for(child1, 1);
-  wait_for(child2, 2);
 
   printf("[parent] All child processes exited\n");
 }
