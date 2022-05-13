@@ -1,0 +1,11 @@
+
+# Editors
+.vscode
+.sw*
+.*.sw*
+
+# MacOS
+.DS_Store
+
+# Project Specific
+bin/
