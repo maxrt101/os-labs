@@ -41,7 +41,7 @@ int main(int argc, char ** argv) {
   printf("[parent] Child exited with code %d\n", code);
   printf("Please enter file contents:\n");
 
-  int fd = open(argv[1], O_CREAT | O_TRUNC | O_WRONLY, 0644);
+  int fd = open(argv[1], O_WRONLY);
   if (fd == -1) {
     fprintf(stderr, "Failed to open file %s\n", argv[1]);
     return 1;
