@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  db:
+    build: db
+    container_name: os_lab_db
+    expose:
+      - 3306
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: itunes
+      MYSQL_ROOT_PASSWORD: abcEDF123-
+
+  app:
+    depends_on:
+      - db
+    build: app
+    container_name: os_lab_app
+    ports:
+      - 8080:8080
+    expose:
+      - 9100
+      - 9090
+
+  nginx:
+    build: nginx
+    container_name: os_lab_nginx
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - app
+
+  grafana:
+    build: grafana
+    container_name: os_lab_grafana
+    ports:
+      - 3000:3000
+    depends_on:
+      - app
